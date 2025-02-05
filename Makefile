@@ -11,11 +11,11 @@ install:
 
 build:
 	@echo "Building the project..."
-	docker build -t hervlokossou/meta_bot .
+	docker build -t cherifissa/meta_bot .
 
 make deploy:
 	@echo "Deploying the project..."
-	docker run -d -p 8004:80 hervlokossou/meta_bot
+	docker run -d -p 8004:80 cherifissa/meta_bot
 
 serve:
 	@echo "Starting development server..."

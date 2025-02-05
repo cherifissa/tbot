@@ -23,9 +23,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    dockerImage.inside {
-                        sh 'pytest tests'
-                    }
+                    sh 'pytest tests'
                 }
             }
         }

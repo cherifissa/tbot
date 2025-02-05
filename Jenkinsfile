@@ -6,32 +6,31 @@ pipeline {
     }
 
     stages {
-        // stage('Clone Repository') {
-        //     steps {
-        //         git 'https://github.com/cherifissa/tbot'
-        //     }
-        // }
-
-        stage('Build Docker Image') {
+        stage('Initialize') {
             steps {
                 script {
-                    dockerImage = docker.build("qrgram")
+                    sh 'make venv && make install'
                 }
             }
         }
-
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'pytest tests'
+                    sh 'make test'
                 }
             }
         }
-
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'make build'
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 script {
-                    dockerImage.run('-d --name qrgram-bot')
+                    sh 'make deploy'
                 }
             }
         }

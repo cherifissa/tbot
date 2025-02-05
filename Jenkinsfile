@@ -6,11 +6,11 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/htagcours/tbot.git'
-            }
-        }
+        // stage('Clone Repository') {
+        //     steps {
+        //         git 'https://github.com/cherifissa/tbot'
+        //     }
+        // }
 
         stage('Build Docker Image') {
             steps {

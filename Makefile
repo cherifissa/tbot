@@ -14,9 +14,8 @@ build:
 	docker build --no-cache -t cherifissa/meta_bot .
 
 make deploy:
-	@echo "Deploying the project..."
-	docker run -d -p 8004:80 cherifissa/meta_bot
-
+	chmod +x deploy.sh
+	./deploy.sh
 serve:
 	@echo "Starting development server..."
 	.venv/bin/fastapi dev src/main.py
